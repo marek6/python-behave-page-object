@@ -1,15 +1,5 @@
 from behave import *
 
-from features.pages.login_page import LoginPage
-
-
-# class LoginSteps(BaseTest):
-#
-#     @Given("Login page is opened")
-#     def step_impl(self):
-#         context.pages.get_login_page.check_page_is_opened()
-#
-
 
 @Given("Login page is opened")
 def step_impl(context):
@@ -33,4 +23,4 @@ def step_impl(context):
 
 @Then("I should be logged into portal")
 def step_impl(context):
-    assert context.page_manager.get_login_page().is_valid_login
+    assert context.page_manager.get_login_page().is_valid_login()
