@@ -1,7 +1,6 @@
-import os
-
 from features.base.webdriver_factory import WebDriverFactory
 from features.managers.page_manager import PageManager
+from features.utilities.screenshot_helper import ScreenshotHelper
 
 
 def before_scenario(context, scenario):
@@ -13,11 +12,6 @@ def before_scenario(context, scenario):
 
 
 def after_scenario(context, scenario):
-    print("scenario status: " + scenario.status.name)
-    if scenario.status.name == "failed":
-        if not os.path.exists("failed_scenarios_screenshots"):
-            os.makedirs("failed_scenarios_screenshots")
-        os.chdir("failed_scenarios_screenshots")
-        context.browser.save_screenshot(scenario.name + "_failed.png")
-
+    context.screenshot_helper = ScreenshotHelper()
+    context.screenshot_helper = context.screenshot_helper.make_screenshot_when_test_failed(context.browser, scenario)
     context.browser.quit()

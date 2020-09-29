@@ -24,4 +24,5 @@ def step_impl(context):
 
 @Then("Remove button appears, which means product is added to the cart")
 def step_impl(context):
-    assert context.page_manager.get_main_products_page().check_remove_button_appear()
+    assert 3 == 2
+    #assert context.page_manager.get_main_products_page().check_remove_button_appear()
