@@ -1,5 +1,6 @@
 from features.pages.login_page import LoginPage
 from features.pages.main_products_page import MainProductsPage
+from features.pages.your_cart_page import YourCartPage
 
 
 class PageManager:
@@ -11,3 +12,6 @@ class PageManager:
 
     def get_main_products_page(self) -> MainProductsPage:
         return MainProductsPage(self.browser)
+
+    def get_your_cart_page(self) -> YourCartPage:
+        return YourCartPage(self.browser)

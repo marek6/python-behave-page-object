@@ -8,5 +8,5 @@ Feature: Products testing on main page
 
   Scenario: Adding product to cart
     When I open products details
-    When I add product to cart
+    When I add product to cart from product details
     Then Remove button appears, which means product is added to the cart

@@ -17,7 +17,7 @@ def step_impl(context):
     context.page_manager.get_main_products_page().open_product_details()
 
 
-@When("I add product to cart")
+@When("I add product to cart from product details")
 def step_impl(context):
     context.page_manager.get_main_products_page().add_product_to_cart()
 
