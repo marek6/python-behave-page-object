@@ -4,7 +4,7 @@ from features.base.base_page import BasePage
 
 class MainProductsPage(BasePage):
     def get_number_of_products(self):
-        products_number = self.browser.find_elements(*ProductsPageLocators.number_of_products)
+        products_number = self.driver.find_elements(*ProductsPageLocators.number_of_products)
         return len(products_number)
 
     def open_product_details(self):

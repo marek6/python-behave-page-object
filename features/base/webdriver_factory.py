@@ -12,13 +12,13 @@ class WebDriverFactory:
 
     def get_webdriver_instance(self):
         if self.current_browser == "chrome":
-            browser = webdriver.Chrome(ChromeDriverManager().install())
+            driver = webdriver.Chrome(ChromeDriverManager().install())
         elif self.current_browser == "firefox":
-            browser = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+            driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
         elif self.current_browser == "ie":
-            browser = webdriver.Ie(IEDriverManager().install())
+            driver = webdriver.Ie(IEDriverManager().install())
         else:
-            browser = webdriver.Chrome(ChromeDriverManager().install())
+            driver = webdriver.Chrome(ChromeDriverManager().install())
 
-        browser.get(BASE_URL)
-        return browser
+        driver.get(BASE_URL)
+        return driver

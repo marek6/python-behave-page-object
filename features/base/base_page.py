@@ -8,23 +8,23 @@ from features.config import NORMAL
 class BasePage(object):
     wait_time = NORMAL
 
-    def __init__(self, browser):
-        self.browser = browser
+    def __init__(self, driver):
+        self.driver = driver
 
     def send_keys(self, element, value):
-        self.browser.find_element(*element).send_keys(value)
+        self.driver.find_element(*element).send_keys(value)
 
     def click_element(self, element):
-        self.browser.find_element(*element).click()
+        self.driver.find_element(*element).click()
 
     def wait_for_element_to_be_clickable(self, element, time=wait_time):
-        WebDriverWait(self.browser, time).until(
+        WebDriverWait(self.driver, time).until(
             EC.element_to_be_clickable(element)
         )
 
     def is_element_visible(self, element, time=wait_time):
         try:
-            WebDriverWait(self.browser, time).until(
+            WebDriverWait(self.driver, time).until(
                 EC.visibility_of_element_located(element)
             )
             return True
